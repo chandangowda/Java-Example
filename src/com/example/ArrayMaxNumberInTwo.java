@@ -1,6 +1,6 @@
 package com.example;
 
-public class MaxNumberInTwoArray {
+public class ArrayMaxNumberInTwo {
 
 	public static void main(String[] args) {
 		int[] L = { 1, 12, }; 

@@ -1,5 +1,7 @@
 package com.example;
 
+import java.math.BigInteger;
+
 public class BitBitWise {
 
 	public static void main(String[] args) {
@@ -7,6 +9,10 @@ public class BitBitWise {
 		System.out.println(getFirstSetBitPos(8));
 
 		System.out.println(turnOffK(7, 3));
+		
+		
+		
+		
 
 	}
 
@@ -115,5 +121,54 @@ public class BitBitWise {
 		return (n & (n >> 1)) == 0;
 
 	}
+	
+	/*
+	 * So the operation x = (x & (x << 1)) reduces length of every sequence of 1s by
+	 * one in binary representation of x
+	 */
+	public static int maxConsecutiveOnes(int x) {
+        int count = 0;
+        while (x!=0) {
+            x = (x & (x << 1));
+            count++;
+        }
+        return count;
+    }
+	
+	public static int greyConverter(int n) {
+        int q=n>>1;
+        return n^q;
+    }
+	
+	 public static int grayToBinary(int n) {
+	        int b=0;
+	        for(n=n;n>0;n=n>>1)
+	            b^=n;
+	        
+	        return b;
+	    }
+	 
+	 public static boolean isPowerofTwo(BigInteger n){
+	        BigInteger zero = new BigInteger("0");
+	        if(n.equals(zero)){
+			    return false;
+			}
+	        
+	        int ans = (int)(Math.log(n.doubleValue())/Math.log(2.0));
+	        
+	        return (n.doubleValue() == Math.pow(2, ans));
+	        
+	    }
+	 
+	 // Function to swap odd and even bits
+	    public static int swapBits(int n) {
+		    
+		    int ev=n & 0xAAAAAAAA; //10101010101010101010101010101010 in binary. We get even bits set if they were in n
+		    int od=n & 0x55555555; //01010101010101010101010101010101 in binary. We get odd bits set if they were in n
+		    ev>>=1;// Right Shift the evn obtained previously by 1 positions and store it in evn
+		    od<<=1;// Left Shift the od obtained previously by 1 positions and store it in odd
+		    return (ev | od); //Do bitwise OR of evn and od to get the final result
+		    
+		}
 
 }
