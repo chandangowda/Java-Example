@@ -1,5 +1,5 @@
 package com.example;
-
+//Smallest Positive missing number
 class ArrayMissing{
 	
 	public static void main(String[] args) {
