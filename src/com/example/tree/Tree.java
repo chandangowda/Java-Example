@@ -2,14 +2,14 @@ package com.example.tree;
 
 public abstract class Tree {
 
-    class Node {
+    public class Node {
 
         public Node nextRight;
-        int data;
-        Node left, right;
+        public int data;
+        public Node left, right;
         int hd;
 
-        Node(int item)    {
+        public Node(int item)    {
             data = item;
             left = right = null;
         }
